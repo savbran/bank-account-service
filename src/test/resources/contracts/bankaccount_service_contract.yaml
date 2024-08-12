@@ -1,0 +1,28 @@
+---
+name: requestAccountBalance
+description: |
+  Should return the account balance for a given account number
+request:
+  method: GET
+  urlPath: /accounts/123456789
+response:
+  status: 200
+  body:
+    accountNumber: '123456789'
+    balance: 1000.00
+  headers:
+    Content-Type: application/json
+
+---
+name: requestAccountBalanceButNotFound
+description: |
+  Should return 404 when the account number does not exist
+request:
+  method: GET
+  urlPath: /accounts/000000000
+response:
+  status: 404
+  body:
+    error: "Account not found"
+  headers:
+    Content-Type: application/json
